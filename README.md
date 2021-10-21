@@ -1,2 +1,11 @@
 # search_engine
-a Simple search engine that crawls stuff
+#a Simple search engine that crawls stuff 
+
+20/10/2021
+# using beautiful soup made a simple crawler
+# give list of webpages
+# will get all the links in the page 
+
+21/10/2021
+# clean the lists properly (healty_url format)
+# two lists good links and bad links

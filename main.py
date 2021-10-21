@@ -1,26 +1,58 @@
 from bs4 import BeautifulSoup as bs
-import requests
-from pprint import pprint
+import requests as rq
+import os
+
+os.system('clear')
+
+url_list = ['https://www.google.com', 'https://www.bing.com/']
 
 
-url_list = ['https://www.youtube.com','https://www.google.com','https://www.bing.com']
+good_list = []
+bad_list = []
+
+print("start")
+
 
 def links(Url):
-  response = requests.get(Url)
-  html = response.content
+    response = rq.get(Url)
+    html = response.content
 
-  #provide the response and the parser
-  soup = bs(html , 'lxml')
+    #provide the response and the parser
+    soup = bs(html, 'lxml')
 
-  #Get all the links in a webpage 
+    #Get all the links in a webpage
+    '''
+    1.use find all with an a tag get href from each   
+    2.check weather href = None (To avoid none type error)
+    3.check good link (properly formated) else format it 
+    4.links are cleaned and separetd into good and bad links
+
   '''
-  for each item in object collection of all tags with a 
-  print href in each a tag
+    for i in soup.find_all('a'):
+        i = i.get('href')
+        if i != None:
+            good_link = i.startswith('https://') or i.startswith('http://') or i.startswith('//www')
+            if good_link == True:
+                good_list.append(i)
 
-  '''
-  for link in soup.find_all('a'):
-    print(link.get('href'))
+            else:
+                bad_list.append(Url+i)
+        else:
+            continue
+    for i in good_list:
+      print(i)
 
-# go through the list and fetch all the links in the page
-for i in url_list:
-   links(i)
+#TODO: find a way to get meta data of each page
+#TODO: best database structure
+
+
+# execute link() twice for main and sub url lists
+for x in url_list:
+    try:
+        print("1.url_list")
+        links(x)
+        print(x)
+    except Exception as e:
+        print(e)
+
+
