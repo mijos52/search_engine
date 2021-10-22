@@ -9,3 +9,7 @@
 21/10/2021
 # clean the lists properly (healty_url format)
 # two lists good links and bad links
+
+22/10/2021
+# database connection (mysql)
+# meta data from urls 

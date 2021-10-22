@@ -8,6 +8,7 @@ authors = ["ethnicstyle <<>>"]
 python = "^3.8"
 bs4 = "^0.0.1"
 lxml = "^4.6.3"
+mysql-connector = "^2.2.9"
 
 [tool.poetry.dev-dependencies]
 

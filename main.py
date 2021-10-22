@@ -1,10 +1,12 @@
 from bs4 import BeautifulSoup as bs
 import requests as rq
 import os
+from meta import meta
+from db import db
 
 os.system('clear')
 
-url_list = ['https://www.google.com', 'https://www.bing.com/']
+url_list = ['https://www.google.com', 'https://www.yahoo.com/']
 
 
 good_list = []
@@ -39,8 +41,7 @@ def links(Url):
                 bad_list.append(Url+i)
         else:
             continue
-    for i in good_list:
-      print(i)
+ 
 
 #TODO: find a way to get meta data of each page
 #TODO: best database structure
@@ -49,10 +50,15 @@ def links(Url):
 # execute link() twice for main and sub url lists
 for x in url_list:
     try:
-        print("1.url_list")
         links(x)
-        print(x)
+
     except Exception as e:
         print(e)
 
 
+# meta data
+# for i in bad_list:
+#    meta(i)
+
+
+db()
