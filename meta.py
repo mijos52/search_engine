@@ -8,9 +8,8 @@ extract content using meta["content"]
 
 '''
 
-# TODO: NoneType object error has to be handled
 
-key_list = []
+# TODO: NoneType object error has to be handled
 
 
 def meta(_url):
@@ -18,11 +17,9 @@ def meta(_url):
 
         response = rq.get(_url)
         html = response.content
-
         soup = Bs(html, 'lxml')
-
         meta_data = soup.find(attrs={"name": "description"})
-        print(meta_data['content'])
+        return meta_data['content']
 
     except Exception as e:
         print(e)

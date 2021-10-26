@@ -13,3 +13,8 @@
 22/10/2021
 # database connection (mysql)
 # meta data from urls 
+
+26/10/2021
+# mysql read , update basic 
+# __init__(self) learning 
+

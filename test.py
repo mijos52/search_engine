@@ -1,7 +1,16 @@
+# instance and class variable
 
 
-list =  ['https://duckduckgo.com/ ,https://google.com/']
+class Car:
+    wheels = 4
+
+    def __init__(self, brand, year):
+        self.brand = brand
+        self.year = year
 
 
-for i in list:
-  print(i)
+new_car = Car("Ferrari", "2020")
+
+print(new_car.brand)
+
+print(new_car.wheels)

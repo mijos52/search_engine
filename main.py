@@ -1,12 +1,13 @@
 from bs4 import BeautifulSoup as Bs
 import requests as rq
 # import os
-# from meta import meta
-from db import db
+from meta import meta
+
+from db import db_write, db_read, db_show_table
 
 # os.system('clear')
 
-url_list = ['https://www.google.com', 'https://www.yahoo.com/']
+url_list = ['https://google.com']
 
 good_list = []
 bad_list = []
@@ -35,14 +36,16 @@ def links(_url):
             good_link = i.startswith('https://') or i.startswith('http://') or i.startswith('//www')
             if good_link is True:
                 good_list.append(i)
+                print("good link is ", i)
 
             else:
+                print("bad list is", _url + i)
                 bad_list.append(_url + i)
+
         else:
             continue
 
 
-# TODO: find a way to get meta data of each page
 # TODO: best database structure
 
 
@@ -55,10 +58,19 @@ for x in url_list:
         print(e)
 
 # meta data
-# for i in bad_list:
-#     meta(i)
+meta_data_list = []
+for i in good_list:
+    meta_data = meta(i)
+    meta_data_list.append(meta_data)
+print(meta_data_list)
 
-try:
-    db()
-except Exception as e:
-    print(e)
+for i in meta_data_list:
+    try:
+        db_write(i, "hai", "how")
+    except Exception as e:
+        print(e)
+
+# try:
+#     db_read()
+# except Exception as e:
+#     print(e)
