@@ -18,3 +18,9 @@
 # mysql read , update basic 
 # __init__(self) learning 
 
+28/10/2021
+# mysql update to database meta_data and links 
+
+
+
+

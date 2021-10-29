@@ -1,16 +1,26 @@
-# instance and class variable
+from pprint import pprint
 
+data = {
+    '01':
+        {
+            '_meta': 'meta',
+            '_keys': 'keys',
+            '_links': 'links'
+        },
+    '02':
+        {
+            '_meta': 'meta',
+            '_keys': 'keys',
+            '_links': 'links'
+        },
+    '03':
+        {
+            '_meta': 'meta',
+            '_keys': 'keys',
+            '_links': 'links'
+        },
 
-class Car:
-    wheels = 4
+}
 
-    def __init__(self, brand, year):
-        self.brand = brand
-        self.year = year
-
-
-new_car = Car("Ferrari", "2020")
-
-print(new_car.brand)
-
-print(new_car.wheels)
+pprint(data)
+print(type(data))

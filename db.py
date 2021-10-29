@@ -16,15 +16,14 @@ table_customers = f'CREATE TABLE {table_name} (id INT AUTO_INCREMENT PRIMARY KEY
 alter_tables = f'ALTER TABLE {table_name} ADD COLUMN meta_data VARCHAR(255)'
 
 
-def db_write(meta_data, key_words, links):
+def db_write_multiple(val):
     my_db = data_base.connect(host="localhost", user="root", passwd="1234", database=database_name)
     my_cursor = my_db.cursor()
 
-    insert_table = f'INSERT INTO {table_name} (meta_data, key_words, links) VALUES ("{meta_data}", ' \
-                   f'"{key_words}", "{links}")'
+    insert_table = f'INSERT INTO {table_name} (meta_data, key_words,links) VALUES (%s,%s,%s)'
 
     # sql query will go inside .execute
-    my_cursor.execute(insert_table)
+    my_cursor.execute(insert_table, val)
 
     # writing into rows
     my_db.commit()
@@ -59,4 +58,4 @@ def db_show_table():
     print(result)
 
 
-db_show_table()
+
