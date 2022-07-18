@@ -9,10 +9,8 @@ extract content using meta["content"]
 '''
 
 
-# TODO: NoneType object error has to be handled
 
-
-def meta(_url):
+def meta_data(_url):
     try:
 
         response = rq.get(_url)

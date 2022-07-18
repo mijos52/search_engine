@@ -1,0 +1,1 @@
+URL_LIST = ['https://www.ersfdaf.com']
